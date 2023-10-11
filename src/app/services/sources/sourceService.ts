@@ -86,7 +86,7 @@ export class sourceService {
 			"$1/>"
 		); // Make sure img tag ends correctly for xhtml
 
-		chapterBody += this.addPropoganda(novel.author);
+		chapterBody;
 
 		const percentage = ((currentPos / destPos) * 100).toFixed(2);
 		this.database.updateDownloadTracker(downloadID, percentage);
@@ -126,15 +126,5 @@ export class sourceService {
 		const html = document.createElement("html");
 		html.innerHTML = stringHtml;
 		return html;
-	}
-
-	addPropoganda(author: string): string {
-		return (
-			"<br/><br/>" +
-			"<p>This novel was scraped from a pirate site using NovelScraper.</p>" +
-			"<p>If possible, please support the author(s) of this novel: " +
-			author +
-			"</p>"
-		);
 	}
 }
